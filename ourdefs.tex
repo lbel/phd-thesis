@@ -1,0 +1,337 @@
+% Number with error
+\newcommand{\err}[2]{\ensuremath{{#1\,\pm\,#2}}\xspace}
+\newcommand{\erra}[3]{\ensuremath{{#1^{+#2}_{-#3}}}\xspace}
+
+%% PARTICLES
+\newcommand{\pz} {\texorpdfstring{\ensuremath{\PP^\zero}\xspace}{P0}}
+\newcommand{\pzb}{\texorpdfstring{\ensuremath{\kern 0.18em\overline{\kern -0.18em \PP}\kern 0.14em{}^{\zero}}\xspace}{anti-P0}}
+\newcommand{\ph} {\texorpdfstring{\ensuremath{\PP_{\raisebox{-0.3ex}{\(\scriptstyle \text{H}\)}}}\xspace}{PH}}
+\newcommand{\pl} {\texorpdfstring{\ensuremath{\PP_{\raisebox{-0.3ex}{\(\scriptstyle \text{L}\)}}}\xspace}{PL}}
+
+\newcommand{\h}{\ensuremath{\Ph}\xspace}
+\newcommand{\hp}{\ensuremath{\h^{+}}\xspace}
+\newcommand{\hm}{\ensuremath{\h^{-}}\xspace}
+\newcommand{\hpm}{\ensuremath{\h^{\pm}}\xspace}
+\newcommand{\hmp}{\ensuremath{\h^{\mp}}\xspace}
+
+\newcommand{\porpbar}{\ensuremath{\optbar{\proton}}\xspace}
+
+\DeclareRobustCommand{\optbarx}[1]{\shortstack{{\miniscule ~(\rule[.5ex]{1.25em}{.18mm})}
+  \\ [-.7ex] $#1$}} % slightly moved to avoid collisions
+
+\newcommand{\KorKst}[1]{\texorpdfstring{\ensuremath{\kaon_{\vphantom{\squark}}^{(*)#1}}\xspace}{K(*)}}
+\newcommand{\KorKstp}{\KorKst{+}}
+\newcommand{\KorKstm}{\KorKst{-}}
+\newcommand{\KorKstpm}{\KorKst{\pm}}
+\newcommand{\KorKstmp}{\KorKst{\mp}}
+
+\renewcommand{\Ds}	{\texorpdfstring{\ensuremath{D_{\hspace{-0.0625em}s}}\xspace}{Ds}} % remove charge from LHCb's definition
+\newcommand{\DsorDss}[1]{\texorpdfstring{\ensuremath{\Ds^{(*)#1}}\xspace}{Ds(*)}}
+\newcommand{\DsorDssp}{\ensuremath{\DsorDss{+}}\xspace}
+\newcommand{\DsorDssm}{\ensuremath{\DsorDss{-}}\xspace}
+\newcommand{\DsorDsspm}{\ensuremath{\DsorDss{\pm}}\xspace}
+\newcommand{\DsorDssmp}{\ensuremath{\DsorDss{\mp}}\xspace}
+\newcommand{\DorDs} {\texorpdfstring{\ensuremath{D_{\hspace{-0.0625em}(s)}}\xspace}{D(s)}}
+\newcommand{\DorDspm}{\ensuremath{\DorDs^{\pm}}}
+\newcommand{\DorDsmp}{\ensuremath{\DorDs^{\mp}}}
+\newcommand{\DorDsp}{\ensuremath{\DorDs^{+}}}
+\newcommand{\DorDsm}{\ensuremath{\DorDs^{-}}}
+\newcommand{\BorBs} {\texorpdfstring{\ensuremath{B_{\hspace{-0.0625em}(s)}}\xspace}{B(s)}}
+\newcommand{\BorBsz}{\ensuremath{\BorBs^{0}}}
+\newcommand{\BsorBsb}{\ensuremath{\optbarx{\B}{}^{\zero}_{\squark}}\xspace}
+
+\newcommand{\Lcp} {\Lc}
+\newcommand{\Lcb} {\Lcm}
+\newcommand{\Lcm} {\texorpdfstring{\Lcbar}{Lc-}}
+\newcommand{\Lcpm}{\ensuremath{\Lz^\pm_\cquark}\xspace}
+
+%% DECAYS
+\newcommand{\PzF}      {\texorpdfstring{\decay{\pz}{\f}}{P -> f}}
+\newcommand{\PzFb}     {\texorpdfstring{\decay{\pz}{\fb}}{P -> fbar}}
+\newcommand{\PzbF}     {\texorpdfstring{\decay{\pzb}{\f}}{Pbar -> f}}
+\newcommand{\PzbFb}    {\texorpdfstring{\decay{\pzb}{\fb}}{Pbar -> fbar}}
+
+\newcommand{\BdDK}     {\texorpdfstring{\decay{\Bz}{\Dm\Kp}}{B0 -> DK}}
+\newcommand{\BdDPi}    {\texorpdfstring{\decay{\Bz}{\Dm\pip}}{B0 -> Dpi}}
+\newcommand{\BdDRho}   {\decay{\Bz}{\Dm\rhop}}
+\newcommand{\BdDsK}    {\texorpdfstring{\decay{\Bz}{\Dsm\Kp}}{B0 -> DsK}}
+\newcommand{\BdDsPi}   {\texorpdfstring{\decay{\Bz}{\Dsp\pim}}{B0 -> Dspi}}
+\newcommand{\BdorBsDsPi}{\texorpdfstring{\decay{\BorBsz}{\Dsp\pim}}{B(s)0 -> Dspi}}
+\newcommand{\BdDsh}    {\texorpdfstring{\decay{\Bz}{\Dsmp\hpm}}{B0 -> Dsh}}
+\newcommand{\BdDsstarPi}{\decay{\Bz}{\Dssm\pi}}
+\newcommand{\BdDstPi}  {\texorpdfstring{\decay{\Bz}{\Dstarm\pip}}{B0 -> D*pi}}
+\newcommand{\BdDstarPi}{\decay{\Bz}{\Dstarm\pip}}
+\newcommand{\BdDKPi}   {\decay{\Bz}{\Dzb\Kp\pim}}
+\newcommand{\BdbDKPi}  {\decay{\Bzb}{\Dz\Km\pip}}
+\newcommand{\BdDlnu}   {\decay{\Bz}{\Dm\ellp\neu}}
+\newcommand{\BdDmunu}  {\decay{\Bz}{\Dm\mup\neum}}
+\newcommand{\BsDslnu}  {\decay{\Bs}{\Dsm\ellp\neu}}
+\newcommand{\BDorDslnu}{\decay{\BorBsz}{\DorDsm\ellp\neu}}
+\newcommand{\BDD}      {\texorpdfstring{\decay{\B}{\D\D}}{B -> DD}}
+\newcommand{\BdDD}     {\texorpdfstring{\decay{\Bz}{\Dm\Dp}}{B0 -> DD}}
+\newcommand{\BdDDs}    {\texorpdfstring{\decay{\Bz}{\Dm\Dsp}}{B0 -> DDs}}
+\newcommand{\BDorDsDorDs}{\texorpdfstring{\decay{\BorBsz}{\DorDsm\DorDsp}}{B0 -> D(s)D(s)}}
+
+\newcommand{\BpJpsiK}  {\texorpdfstring{\decay{\Bp}{\jpsi\Kp}}{B+ -> J/Psi K+}}
+
+\newcommand{\BsDsKst}  {\decay{\Bs}{\Dsm\Kstarp}}
+\newcommand{\BsDsK}    {\texorpdfstring{\decay{\Bs}{\Dsmp\Kpm}}{Bs0 -> DsK}}
+\newcommand{\BsDsPi}   {\texorpdfstring{\decay{\Bs}{\Dsm\pip}}{Bs0 -> Dspi}}
+\newcommand{\BsDsRho}  {\decay{\Bs}{\Dsm\rhop}}
+\newcommand{\BsDsh}    {\texorpdfstring{\decay{\Bs}{\Dsmp\hpm}}{Bs0 -> Dsh}}
+\newcommand{\BsDspmh}  {\texorpdfstring{\decay{\Bs}{\Dspm\hmp}}{Bs0 -> Dsh}}
+\newcommand{\BsDsmph}  {\texorpdfstring{\decay{\Bs}{\Dsmp\hpm}}{Bs0 -> Dsh}}
+\newcommand{\BsDspKm}  {\texorpdfstring{\decay{\Bs}{\Dsp\Km}}{Bs0 -> DsK}}
+\newcommand{\BsDsmKp}  {\texorpdfstring{\decay{\Bs}{\Dsm\Kp}}{Bs0 -> DsK}}
+\newcommand{\BsbDspKm}  {\texorpdfstring{\decay{\Bsb}{\Dsp\Km}}{Bs0 -> DsK}}
+\newcommand{\BsbDsmKp}  {\texorpdfstring{\decay{\Bsb}{\Dsm\Kp}}{Bs0 -> DsK}}
+\newcommand{\BsDsstKst}{\decay{\Bs}{\Dssm\Kstarp}}
+\newcommand{\BsDsOrDsstKorKst}{\texorpdfstring{\decay{\Bs}{\DsorDssmp\KorKstpm}}{Bs0 -> Ds(*)K(*)}}
+\newcommand{\BsDsstK}  {\decay{\Bs}{\Dssmp\Kpm}}
+\newcommand{\BsDsstPi} {\decay{\Bs}{\Dssm\pip}}
+\newcommand{\BsDstRho} {\decay{\Bs}{\Dssm\rhop}}
+\newcommand{\BsDsOrDsstPi}{\decay{\Bs}{\DsorDssm\pip}}
+\newcommand{\BsDD}     {\texorpdfstring{\decay{\Bs}{\Dp}{\Dm}}{Bs0 -> DD}}
+\newcommand{\BsDsDs}   {\texorpdfstring{\decay{\Bs}{\Dsm\Dsp}}{Bs0 -> DsDs}}
+
+\newcommand{\DzKPi}    {\decay{\Dz}{\Km\pip}}
+\newcommand{\DzbKPi}   {\decay{\Dzb}{\Kp\pim}}
+
+\newcommand{\DsstDsG}   {\decay{\Dssm}{\Dsm\g}}
+
+\newcommand{\DspKKPi}   {\decay{\Dsp}{\Kp\Km\pip}}
+\newcommand{\DspPhiPi}  {\decay{\Dsp}{\phiz\pip}}
+\newcommand{\DspKstK}   {\decay{\Dsp}{\Kstarz\Kp}}
+\newcommand{\DspNonRes} {\decay{\Dsp}{(\Kp\Km\pip)_{\text{nonres}}}}
+\newcommand{\DspKPiPi}  {\decay{\Dsp}{\Kp\pim\pip}}
+\newcommand{\DspPiPiPi} {\decay{\Dsp}{\pip\pim\pip}}
+\newcommand{\Dsphhh}    {\decay{\Dsp}{\hp\hm\hp}}
+\newcommand{\DpKPiPi}   {\decay{\Dp}{\Km\pip\pip}}
+
+\newcommand{\DsmKKPi}   {\decay{\Dsm}{\Km\Kp\pim}}
+\newcommand{\DsmPhiPi}  {\decay{\Dsm}{\phiz\pim}}
+\newcommand{\DsmKstK}   {\decay{\Dsm}{\Kstarz\Km}}
+\newcommand{\DsmNonRes} {\decay{\Dsm}{(\Km\Kp\pim)_{\text{nonres}}}}
+\newcommand{\DsmKPiPi}  {\decay{\Dsm}{\Km\pip\pim}}
+\newcommand{\DsmPiPiPi} {\decay{\Dsm}{\pim\pip\pim}}
+\newcommand{\Dsmhhh}    {\decay{\Dsm}{\hm\hp\hm}}
+\newcommand{\DmKPiPi}   {\decay{\Dm}{\Kp\pim\pim}}
+
+\newcommand{\DspmKKPi}  {\decay{\Dspm}{\Kpm\Kmp\pipm}}
+\newcommand{\DspmPhiPi} {\decay{\Dspm}{\phiz\pipm}}
+\newcommand{\DspmKstK}  {\decay{\Dspm}{\Kstarz\Kpm}}
+\newcommand{\DspmNonRes}{\decay{\Dspm}{(\Kpm\Kmp\pipm)_{\text{nonres}}}}
+\newcommand{\DspmKPiPi} {\decay{\Dspm}{\Kpm\pimp\pipm}}
+\newcommand{\DspmPiPiPi}{\decay{\Dspm}{\pipm\pimp\pipm}}
+\newcommand{\Dspmhhh}   {\decay{\Dspm}{\hpm\hmp\hpm}}
+\newcommand{\DpmKPiPi}  {\decay{\Dpm}{\Kmp\pipm\pipm}}
+
+\newcommand{\DsmpKKPi}  {\decay{\Dsmp}{\Kmp\Kpm\pimp}}
+\newcommand{\DsmpPhiPi} {\decay{\Dsmp}{\phiz\pimp}}
+\newcommand{\DsmpKstK}  {\decay{\Dsmp}{\Kstarz\Kmp}}
+\newcommand{\DsmpNonRes}{\decay{\Dsmp}{(\Kmp\Kpm\pimp)_{\text{nonres}}}}
+\newcommand{\DsmpKPiPi} {\decay{\Dsmp}{\Kmp\pipm\pimp}}
+\newcommand{\DsmpPiPiPi}{\decay{\Dsmp}{\pimp\pipm\pimp}}
+\newcommand{\Dsmphhh}   {\decay{\Dsmp}{\hmp\hpm\hmp}}
+\newcommand{\DmpKPiPi}  {\decay{\Dmp}{\Kpm\pimp\pimp}}
+
+\newcommand{\LbDsOrDsstp}{\decay{\Lb}{\DsorDssm\proton}}
+\newcommand{\LbDsP}    {\texorpdfstring{\decay{\Lb}{\Dsm\proton}}{Lb -> Dsp}}
+\newcommand{\LbDsstP}  {\decay{\Lb}{\Dssm\proton}}
+\newcommand{\LbLcK}    {\decay{\Lb}{\Lcp\Km}}
+\newcommand{\LbLcPi}   {\decay{\Lb}{\Lcp\pim}}
+\newcommand{\LcPKPi}   {\decay{\Lc}{\proton\Km\pip}}
+\newcommand{\LcmPKPi}  {\decay{\Lcm}{\antiproton\Kp\pim}}
+
+\newcommand{\DstarDPi} {\decay{\Dstarp}{\Dz(\to \Km\pip)\pipS}}
+\newcommand{\Lzppi}    {\decay{\Lz}{\proton\pim}}
+
+\newcommand{\RhoPiPi}  {\decay{\rhop}{\pip\piz}}
+\newcommand{\PhiKK}    {\decay{\phiz}{\Kp\Km}}
+\newcommand{\KstKPi}   {\decay{\Kstarz}{\Kp\pim}}
+
+%% FINAL STATES
+\newcommand{\DsmKp}    {\ensuremath{{\Dsm\Kp}}\xspace}
+\newcommand{\DspKm}    {\ensuremath{{\Dsp\Km}}\xspace}
+\newcommand{\DspmKmp}  {\ensuremath{{\Dspm\Kmp}}\xspace}
+\newcommand{\DsmpKpm}  {\ensuremath{{\Dsmp\Kpm}}\xspace}
+\newcommand{\DsmPip}   {\ensuremath{{\Dsm\pip}}\xspace}
+\newcommand{\DspPim}   {\ensuremath{{\Dsp\pim}}\xspace}
+\newcommand{\DspmPimp} {\ensuremath{{\Dspm\pimp}}\xspace}
+\newcommand{\DsmpPipm} {\ensuremath{{\Dsmp\pipm}}\xspace}
+\newcommand{\DsmPp}    {\ensuremath{{\Dsm\proton}}\xspace}
+\newcommand{\DspPm}    {\ensuremath{{\Dsp\antiproton}}\xspace}
+\newcommand{\DspmPmp}  {\ensuremath{{\Dspm\porpbar}}\xspace}
+\newcommand{\DsmpPpm}  {\ensuremath{{\Dsmp\porpbar}}\xspace}
+\newcommand{\DpPim}    {\ensuremath{{\Dp\pim}}\xspace}
+\newcommand{\DmPip}    {\ensuremath{{\Dm\pip}}\xspace}
+\newcommand{\DpmPimp}  {\ensuremath{{\Dpm\pimp}}\xspace}
+\newcommand{\DmpPipm}  {\ensuremath{{\Dmp\pipm}}\xspace}
+\newcommand{\KKPi}     {\KpmKPi}
+\newcommand{\KpmKPi}   {\ensuremath{{\Kpm\Kmp\pipm}}\xspace}
+\newcommand{\KmpKPi}   {\ensuremath{{\Kmp\Kpm\pimp}}\xspace}
+\newcommand{\KpKPi}    {\ensuremath{{\Kp\Km\pip}}\xspace}
+\newcommand{\KmKPi}    {\ensuremath{{\Km\Kp\pim}}\xspace}
+\newcommand{\KPiPi}    {\KpmPiPi}
+\newcommand{\KpmPiPi}  {\ensuremath{{\Kpm\pimp\pimp}}\xspace}
+\newcommand{\KmpPiPi}  {\ensuremath{{\Kmp\pipm\pipm}}\xspace}
+\newcommand{\KpPimPim} {\ensuremath{{\Kp\pim\pim}}\xspace}
+\newcommand{\KmPipPip} {\ensuremath{{\Km\pip\pip}}\xspace}
+\newcommand{\PiPiPi}   {\PipmPiPi}
+\newcommand{\PipmPiPi} {\ensuremath{{\pipm\pimp\pipm}}\xspace}
+\newcommand{\PimpPiPi} {\ensuremath{{\pimp\pipm\pimp}}\xspace}
+\newcommand{\PipPiPi}  {\ensuremath{{\pip\pim\pip}}\xspace}
+\newcommand{\PimPiPi}  {\ensuremath{{\pim\pip\pim}}\xspace}
+
+\newcommand{\LcPi}     {\ensuremath{\Lc\pim}\xspace}
+\newcommand{\LcpmPimp} {\ensuremath{\Lcpm\pimp}\xspace}
+\newcommand{\PKPi}     {\ensuremath{{\proton\Km\pip}}\xspace}
+\newcommand{\PbarKPi}  {\ensuremath{{\antiproton\Kp\pim}}\xspace}
+
+\newcommand{\Dsph} {\ensuremath{{\Dsp\hm}}\xspace}
+\newcommand{\Dsmh} {\ensuremath{{\Dsm\hp}}\xspace}
+\newcommand{\Dspmh}{\ensuremath{{\Dspm\hmp}}\xspace}
+\newcommand{\Dsmph}{\ensuremath{{\Dsmp\hpm}}\xspace}
+\newcommand{\Dsh}  {\Dspmh}
+\newcommand{\DpmPi}{\ensuremath{{\Dpm\pimp}}\xspace}
+\newcommand{\DmpPi}{\ensuremath{{\Dmp\pipm}}\xspace}
+
+\newcommand{\hhh}      {\ensuremath{\hpmhmphpm}\xspace}
+\newcommand{\hpmhmphpm}{\ensuremath{{\hpm\hmp\hpm}}\xspace}
+\newcommand{\hmphpmhmp}{\ensuremath{{\hmp\hpm\hmp}}\xspace}
+\newcommand{\hphmhp}   {\ensuremath{{\hp\hm\hp}}\xspace}
+\newcommand{\hmhphm}   {\ensuremath{{\hm\hp\hm}}\xspace}
+
+%% SYMBOLS
+\newcommand{\identitymatrix}[1][]{\ensuremath{\mathbf{1}_{#1}}\xspace}
+\newcommand{\VCKMx} {\ensuremath{\mathbf{V}_{\text{CKM}}}\xspace}
+\newcommand{\VCKM}  {\ensuremath{\VCKMx^{\vphantom{\dagger}}}\xspace}
+\newcommand{\VCKMd} {\ensuremath{\VCKMx^{\dagger}}\xspace}
+\newcommand{\wolfl} {\ensuremath{\lambda}\xspace}
+\newcommand{\wolfA} {\ensuremath{A}\xspace}
+\newcommand{\wolfrho}{\ensuremath{\rho}\xspace}
+\newcommand{\wolfrhob}{\ensuremath{\overline{\wolfrho}}\xspace}
+\newcommand{\wolfeta}{\ensuremath{\eta}\xspace}
+\newcommand{\wolfetab}{\ensuremath{\overline{\wolfeta}}\xspace}
+\newcommand{\Jarlskog}{\ensuremath{J}\xspace}
+
+\newcommand{\Lagrangian}{\ensuremath{\mathcal{L}}\xspace}
+\newcommand{\Hweak} {\ensuremath{H_{\text{W}}}\xspace}
+\newcommand{\f}		{\ensuremath{f}\xspace} % the final state, e.g. DsK or simply f
+\newcommand{\fb}	{\ensuremath{\bar{\f}}\xspace} % redefining LHCb's fb for femtobarn
+\newcommand{\Af}	{\ensuremath{A_{\f}}\xspace} % the decay amplitude to final state f
+\newcommand{\Afb}	{\ensuremath{A_{\fb}}\xspace}
+\newcommand{\Abf}	{\ensuremath{\overline{A}_{\f}}\xspace}
+\newcommand{\Abfb}	{\ensuremath{\overline{A}_{\fb}}\xspace}
+\newcommand{\weak}	{\ensuremath{{\CPgamma - 2\betas}}\xspace}
+\newcommand{\strongangle}{\ensuremath{\delta}\xspace}
+\newcommand{\lf}	{\ensuremath{\lambda_{\f}}\xspace}
+\newcommand{\lfb}	{\ensuremath{\lambda_{\fb}}\xspace}
+\newcommand{\lbf}	{\ensuremath{\overline{\lambda}_{\f}}\xspace}
+\newcommand{\lbfb}	{\ensuremath{\overline{\lambda}_{\fb}}\xspace}
+\newcommand{\ldsk}	{\ensuremath{\lambda_{\DsmKp}}\xspace}
+\newcommand{\ldskb}	{\ensuremath{\lambda_{\DspKm}}\xspace}
+\newcommand{\gpt}   {\ensuremath{{g_{+}(t)}}\xspace}
+\newcommand{\gpst}  {\ensuremath{{g_{+}^{*}(t)}}\xspace}
+\newcommand{\gmt}   {\ensuremath{{g_{\vphantom{+}-}(t)}}\xspace}
+\newcommand{\gmst}  {\ensuremath{{g_{\vphantom{+}-}^{*}(t)}}\xspace}
+\newcommand{\rdsk}	{\texorpdfstring{\ensuremath{r_{\Ds\hspace{-0.0625em}\kaon}}\xspace}{rDsK}}
+\newcommand{\omcl}	{\ensuremath{{1 - \text{CL}}}\xspace}
+\newcommand{\aNF}   {\ensuremath{a_{\text{NF}}}\xspace}
+\newcommand{\aNFt}  {\ensuremath{\tilde{a}_{\text{NF}}}\xspace}
+
+\newcommand{\mH}    {\ensuremath{m_{\text{H}}}\xspace}
+\newcommand{\mL}    {\ensuremath{m_{\text{L}}}\xspace}
+\renewcommand{\GH}  {\ensuremath{\Gamma_{\text{H}}}\xspace}
+\renewcommand{\GL}  {\ensuremath{\Gamma_{\text{L}}}\xspace}
+\newcommand{\chk}   {\checkmark\xspace}
+
+\newboolean{uselhcbcpconvention}
+\setboolean{uselhcbcpconvention}{true}
+\ifthenelse{\boolean{uselhcbcpconvention}}%
+{%
+% use the LHCb notation
+\newcommand{\Cbpar}	{\ensuremath{C_{\fb}}\xspace}
+\newcommand{\Cpar}	{\ensuremath{C_{\f}}\xspace}
+\newcommand{\Sbpar}	{\ensuremath{S_{\fb}}\xspace}
+\newcommand{\Spar}	{\ensuremath{S_{\f}}\xspace}
+\newcommand{\Dbpar}	{\ensuremath{{A_{\fb}^{\DG}}}\xspace}
+\newcommand{\Dpar}	{\ensuremath{{A_{\f}^{\DG}}}\xspace}
+\newcommand{\Dparsign}	{-}
+}{%
+\newcommand{\Cbpar}	{\ensuremath{C_{\fb}}\xspace}
+\newcommand{\Cpar}	{\ensuremath{C_{\f}}\xspace}
+\newcommand{\Sbpar}	{\ensuremath{S_{\fb}}\xspace}
+\newcommand{\Spar}	{\ensuremath{S_{\f}}\xspace}
+\newcommand{\Dbpar}	{\ensuremath{D_{\fb}}\xspace}
+\newcommand{\Dpar}	{\ensuremath{D_{\f}}\xspace}
+\newcommand{\Dparsign}	{+}
+}%
+
+%\newcommand{\pidk}{\ensuremath{\rm PIDK}\xspace}
+\newcommand{\pidk}{\ensuremath{L(\kaon/\pion)}\xspace}
+\newcommand{\PIDK}{\pidk}
+\newcommand{\pidpi}{\ensuremath{\text{PID}\pi\xspace}}
+\newcommand{\pidp}{\ensuremath{\text{PID}p}\xspace}
+\newcommand{\fsfd}{\ensuremath{f_{\squark}/f_{\dquark}}\xspace}
+\newcommand{\ntr}{\ensuremath{N_{\text{tracks}}}\xspace}
+\newcommand{\lnntr}{\ensuremath{\log(\ntr)}\xspace}
+\newcommand{\lnpidk}{\lnpid}
+\newcommand{\lnpid}{\ensuremath{\log(\pidk)}\xspace}
+\newcommand{\lnp}{\ensuremath{\log(\ptot)}\xspace}
+\newcommand{\lnpt}{\ensuremath{\log(\pt)}\xspace}
+\newcommand{\mpid}{\ensuremath{-\text{PIDK}}\xspace}
+\newcommand{\pdf}{\ensuremath{\mbox{PDF}}}
+\newcommand{\p}      {\texorpdfstring{p}{p}}
+\newcommand{\sfit}	{\mbox{\emph{sFit}}\xspace}
+\newcommand{\cfit}	{\mbox{\emph{cFit}}\xspace}
+\newcommand{\sWeights}	{\mbox{\emph{sWeights}}\xspace}
+\newcommand{\sWeighted}	{\mbox{\emph{sWeighted}}\xspace}
+
+\newcommand{\CPalpha} {\texorpdfstring{{\ensuremath{\alpha}}\xspace}{alpha}}
+\newcommand{\CPbeta}  {\texorpdfstring{{\ensuremath{\beta}}\xspace}{beta}}
+\newcommand{\CPgamma} {\texorpdfstring{{\ensuremath{\gamma}}\xspace}{gamma}}
+\newcommand{\qB} {\ensuremath{\quark_{\PB}}\xspace}
+\newcommand{\BqB} {\ensuremath{\B_{\qB}}\xspace}
+\newcommand{\qD} {\ensuremath{\quark_{\PD}}\xspace}
+\newcommand{\DqD} {\ensuremath{\D_{\qD}}\xspace}
+\newcommand{\q}[1]{\ensuremath{\quark_{#1}}\xspace}
+
+\newcommand{\dll}{\ensuremath{\text{DLL}}\xspace}
+\newcommand{\dllkp}{\ensuremath{\dll_{\kaon\proton}}\xspace}
+\newcommand{\probNNp}{\ensuremath{p_{\text{NN}, \proton}}\xspace}
+
+\newcommand{\DCB}{\ensuremath{\text{DCB}}\xspace}
+\newcommand{\DCBmu}{\ensuremath{\mu}\xspace}
+\newcommand{\DCBs}{\ensuremath{\sigma}\xspace}
+\newcommand{\DCBsL}{\ensuremath{\sigma_{\text{L}}}\xspace}
+\newcommand{\DCBsR}{\ensuremath{\sigma_{\text{R}}}\xspace}
+\newcommand{\DCBsLR}{\ensuremath{\sigma_{\text{L,R}}}\xspace}
+\newcommand{\DCBaL}{\ensuremath{\alpha_{\text{L}}}\xspace}
+\newcommand{\DCBaR}{\ensuremath{\alpha_{\text{R}}}\xspace}
+\newcommand{\DCBnL}{\ensuremath{n_{\text{L}}}\xspace}
+\newcommand{\DCBnR}{\ensuremath{n_{\text{R}}}\xspace}
+\newcommand{\DCBf} {\ensuremath{f}\xspace}
+
+\newcommand{\RBs}{\ensuremath{R_{\Bs}}\xspace}
+\newcommand{\RDs}{\ensuremath{R_{\Dspm}}\xspace}
+
+\newcommand{\hflav}{\mbox{HFLAV}\xspace}
+\newcommand{\hfag}{\hflav}
+
+\newcommand{\KEYS}{\texttt{KEYS}\xspace}
+
+\newcommand{\dt}{\ensuremath{\sigma_{t}}\xspace}
+\newcommand{\seff}{\ensuremath{\sigma_\text{eff}}\xspace}
+
+\newcommand{\tagp}[1]{\ensuremath{p_{#1}}\xspace}
+\newcommand{\Dtagp}[1]{\ensuremath{{\upDelta\tagp{#1}}}\xspace}
+\newcommand{\avgeta}{\mean{\eta}}
+\newcommand{\Detag}{\ensuremath{{\upDelta\etag}}\xspace}
+\newcommand{\eeff}{\ensuremath{\varepsilon_{\text{eff}}}\xspace}
+
+\newcommand{\Aprod}[1]{\ensuremath{{A_{\text{prod}}(#1)}}\xspace}
+\newcommand{\AprodBs}{\Aprod{\Bs}}
+\newcommand{\Adet}[1]{\ensuremath{{A_{\text{det}}(#1)}}\xspace}
+\newcommand{\AdetKPi}{\Adet{\kaon\pion}}
+

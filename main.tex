@@ -1,0 +1,137 @@
+\RequirePackage[l2tabu, orthodox]{nag} % Nags about using deprecated commands
+\documentclass[11pt,b5paper,chapterprefix=true,appendixprefix=true,numbers=noendperiod]{scrbook}
+
+% Hack for luatex compatibility
+\usepackage{luatex85}
+\def\pgfsysdriver{pgfsys-pdftex.def}
+
+% Variables that control behaviour
+\usepackage{ifthen} % for conditional statements
+\newboolean{pdflatex}
+\setboolean{pdflatex}{true} % False for eps figures
+
+\newboolean{articletitles}
+\setboolean{articletitles}{true} % False removes titles in references
+
+\newboolean{uprightparticles}
+\setboolean{uprightparticles}{false} %True for upright particle symbols
+
+\newboolean{inappendix}
+\setboolean{inappendix}{false} %True once you enter the appendices
+
+\newboolean{inbibliography}
+\setboolean{inbibliography}{false} %True once you enter the bibliography
+
+\newboolean{print}
+\setboolean{print}{true} %True for printable version
+
+\newboolean{doublespacing}
+\ifthenelse{\boolean{print}}{\setboolean{doublespacing}{false}}{\setboolean{doublespacing}{true}}
+
+\newboolean{ch-introduction}\setboolean{ch-introduction}{true}
+\newboolean{ch-theory}     \setboolean{ch-theory}{true}
+\newboolean{ch-detector}   \setboolean{ch-detector}{true}
+\newboolean{ch-methods}    \setboolean{ch-methods}{true}
+\newboolean{ch-dskbf}      \setboolean{ch-dskbf}{true}
+\newboolean{ch-bsdsktd}    \setboolean{ch-bsdsktd}{true}
+\newboolean{ch-vub}        \setboolean{ch-vub}{true}
+\newboolean{ch-appendix}   \setboolean{ch-appendix}{true}
+\newboolean{ch-summary}    \setboolean{ch-summary}{true}
+\newboolean{ch-acknowledgements}\setboolean{ch-acknowledgements}{true}
+
+\input{preamble}
+
+\begin{document}
+
+\include{colofon}
+\clearpage
+\include{title}
+\clearpage
+
+\frontmatter
+
+\dominitoc
+\tableofcontents
+\clearpage
+
+\ifthenelse{\boolean{ch-introduction}}{
+    \include{introduction}
+    \clearpage
+}
+
+\mainmatter
+\ifthenelse{\boolean{print}}{\AddLabels}
+
+\ifthenelse{\boolean{ch-theory}}{
+    \include{theory}
+    \clearpage
+}
+
+\ifthenelse{\boolean{ch-detector}}{
+    \include{detector}
+    \clearpage
+}
+
+\ifthenelse{\boolean{ch-methods}}{
+    \include{methods}
+    \clearpage
+}
+
+\ifthenelse{\boolean{ch-dskbf}}{
+    \include{DsK_BF}
+    \clearpage
+}
+
+\ifthenelse{\boolean{ch-bsdsktd}}{
+    \addtocontents{toc}{\protect\newpage}
+    \include{BsDsK_TD}
+    \clearpage
+}
+
+\ifthenelse{\boolean{ch-vub}}{
+    \include{Vub}
+    \clearpage
+}
+
+\def\chaptertag{7}
+\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\def\chaptertag{7}
+\setboolean{inappendix}{true}
+
+\ifthenelse{\boolean{ch-appendix}}{
+    \def\chaptertag{7}
+    \include{appendix}
+    \clearpage
+}
+
+\backmatter
+
+\stepcounter{actualchapter}
+\def\chaptertag{B}
+\include{references}
+\clearpage
+
+\ifthenelse{\boolean{ch-summary}}{
+    \stepcounter{actualchapter}
+    \def\chaptertag{S}
+    \include{summary}
+    \clearpage
+
+    \stepcounter{actualchapter}
+    \def\chaptertag{S}
+    \ihead{Samenvatting}
+    \include{samenvatting}
+    \ihead{Samenvatting}
+    \clearpage
+}
+
+\ifthenelse{\boolean{ch-acknowledgements}}{
+    \stepcounter{actualchapter}
+    \def\chaptertag{A}
+    \include{acknowledgements}
+    \clearpage
+}
+
+\end{document}
+

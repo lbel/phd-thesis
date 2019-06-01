@@ -1,0 +1,280 @@
+%% %%%%%%%%%%%%%%%%%%
+%%  Page formatting
+%% %%%%%%%%%%%%%%%%%%
+\usepackage[margin=2.5cm]{geometry}
+
+% Headers & footers
+\usepackage[headsepline]{scrlayer-scrpage}
+\setkomafont{pagehead}{}
+\setkomafont{pageheadfoot}{}
+\renewcommand\chaptermarkformat{\textbf{\chapappifchapterprefix~\thechapter}\enskip}
+\renewcommand\sectionmarkformat{\textbf{\thesection}\enskip}
+\ohead{\pagemark}
+\ihead{\headmark}
+\ofoot{}
+\ifoot{}
+
+\frenchspacing
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+
+%% %%%%%%%%%%%%%%%%%%%%%%%
+%% Packages to be used
+%% %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dutch,british]{babel}
+\usepackage{csquotes}
+\usepackage[table]{xcolor}
+
+\usepackage{etoolbox}
+\usepackage{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Sans}
+\setsansfont{Latin Modern Sans}
+\usepackage{lineno}
+\usepackage{xspace} % To avoid problems with missing or double spaces after
+                    % predefined symbold
+\usepackage[font=small,labelfont={color=supporta,bf},labelsep=space]{caption}
+\usepackage{comment}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+
+\ifthenelse{\boolean{doublespacing}}{
+    % Use double line spacing
+    \usepackage{setspace}
+    \captionsetup{font=doublespacing}
+    \doublespacing
+}{}
+
+%% TOC
+\usepackage{minitoc}
+\setcounter{secnumdepth}{3} % number subsubsections
+\setcounter{tocdepth}{1} % list sections
+
+%% Graphics
+\usepackage{graphicx}  % to include figures
+\usepackage[font+=small]{subcaption}
+\graphicspath{{./figs/}} % Make Latex search figs subdir for figures
+\usepackage{xhfill}
+\definecolor{supporta}{cmyk}{0.0, 0.194, 0.554, 0.173}
+\definecolor{supportb}{cmyk}{1.0, 0.35, 0.0, 0.3}
+\definecolor{supportc}{cmyk}{0.8, 0.35, 0.0, 0.0}
+\definecolor{supportd}{cmyk}{0.0, 0.43, 1.0, 0.3}
+\definecolor{tableshade}{cmyk}{0, 0.072, 0.2, 0.045}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc}
+\usetikzlibrary{math}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{totcount}
+\usepackage[contents={},opacity=1,scale=1,color=black]{background}
+
+%% Tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+% Allow \setcounter{rownum} to reset table row colouring
+\makeatletter
+\@ifundefined{c@rownum}{%
+    \let\c@rownum\rownum
+}{}
+\@ifundefined{therownum}{%
+    \def\therownum{\@arabic\rownum}%
+}{}
+\makeatother
+
+%% Math
+\usepackage{amsmath} % Adds a large collection of math symbols
+\usepackage{amssymb}
+\usepackage{fixmath} % Provides ISO conform greek letters
+\usepackage{amsfonts}
+\usepackage{upgreek} % Adds in support for greek letters in roman typeset
+\usepackage{xfrac} % Pretty fractions
+
+%% Units
+\usepackage{siunitx}
+\sisetup{separate-uncertainty}
+\DeclareSIUnit{\percent}{\text{\%}}
+\DeclareSIUnit{\clight}{\text{\ensuremath{\symit{c}}}} % remove _0 from c
+\DeclareSIUnit[per-mode=symbol]{\MeVc}{\MeV\!\per\clight}
+\DeclareSIUnit[per-mode=symbol]{\MeVcc}{\MeV\!\per\clight\squared}
+\DeclareSIUnit[per-mode=symbol]{\GeVc}{\GeV\!\per\clight}
+\DeclareSIUnit[per-mode=symbol]{\GeVcc}{\GeV\!\per\clight\squared}
+% Chapter margin markers
+\newif\ifMaterial
+
+\newlength\LabelSize
+\setlength\LabelSize{2.5cm}
+
+\AtBeginDocument{%
+    \regtotcounter{chapter}
+    \setlength\LabelSize{\dimexpr\textheight/(\totvalue{chapter}+4)\relax}
+    \ifdim\LabelSize>2.5cm\relax
+      \global\setlength\LabelSize{2.5cm}
+    \fi
+}
+
+\newcounter{actualchapter}
+\setcounter{actualchapter}{0}
+\def\chaptertag{\thechapter}
+\newcommand\AddLabels{%
+    \Materialtrue%
+    \AddEverypageHook{%
+        \ifthenelse{\boolean{inappendix}}{}{
+            \setcounter{actualchapter}{\value{chapter}}
+        }
+        \ifMaterial%
+        \ifodd\value{page} %
+        \backgroundsetup{
+            angle=90,
+            position={current page.east|-current page text area.north  east},
+            vshift=7pt,
+            hshift=-\value{actualchapter}*\LabelSize,
+            contents={%
+                \tikz\node[fill=supporta,anchor=north,text width=\LabelSize,align=center,text height=17pt,text depth=23pt,font=\large\sffamily] {\chaptertag};
+            }%
+        }
+        \else
+        \backgroundsetup{
+            angle=90,
+            position={current page.west|-current page text area.north west},
+            vshift=-7pt,
+            hshift=-\value{actualchapter}*\LabelSize,
+            contents={%
+                \tikz\node[fill=supporta,anchor=south,text width=\LabelSize,align=center,text height=30pt,text depth=10pt,font=\large\sffamily] {\chaptertag};
+            }%
+        }
+        \fi
+        \BgMaterial%
+    \else\relax\fi}%
+}
+
+\newcommand\RemoveLabels{\Materialfalse}
+
+%% fix to allow peaceful coexistence of line numbering and
+%% mathematical objects
+%% http://www.latex-community.org/forum/viewtopic.php?f=5&t=163
+%%
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+\expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+\expandafter\let\csname oldend#1\expandafter\endcsname\csname
+end#1\endcsname
+ \renewenvironment{#1}%
+   {\linenomath\csname old#1\endcsname}%
+   {\csname oldend#1\endcsname\endlinenomath}%
+}
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}%
+}
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+\patchBothAmsMathEnvironmentsForLineno{eqnarray}%
+}
+
+\input{lhcb-symbols-def} % Add in the predefined LHCb symbols
+
+%% TYPESETTING
+% Insert an invisible character width the width of a 0 or - or .
+\newcommand{\0}{\hphantom{0}\xspace}
+\newcommand{\n}{\hphantom{-}\xspace}
+\newcommand{\z}{\hphantom{.}\xspace}
+
+\usepackage[math-style=ISO]{unicode-math}
+\DeclareSymbolFont{oldnumbers}{T1}{\familydefault}{m}{n}
+\DeclareMathSymbol{\zero}{\mathalpha}{oldnumbers}{"30}
+\renewcommand{\familydefault}{\sfdefault}
+\setmathfont{Latin Modern Math}
+\setmathfont{Latin Modern Sans}[range=up/{num}]
+% Restore checkmark symbol
+\AtBeginDocument{\renewcommand\checkmark{\usefont{U}{msa}{m}{n}X}}
+
+\newkomafont{secnum}{\color{supporta}}
+\renewcommand*\do[1]{%
+    \newkomafont{#1number}{}%
+    \expandafter\renewcommand\csname#1format\endcsname{%
+        {\usekomafont{secnum}\usekomafont{#1number}\llap{\csname the#1\endcsname\hspace{6pt}}}%
+    }%
+}
+\docsvlist{chapter,section,subsection,subsubsection,paragraph,subparagraph}
+
+\usepackage{floatrow}
+\floatsetup[table]{style=plaintop}
+\floatsetup[figure]{style=plain}
+
+\newcommand{\centerfloat}{\centering}
+
+% Lettrine for pretty letters
+\usepackage{lettrine}
+\usepackage{Royal}
+\setcounter{DefaultLines}{3}%
+\renewcommand{\LettrineFontHook}{\color{supporta}\Royal{}}
+
+\usepackage{todonotes}
+
+% Same numbering for tables and figures
+\makeatletter
+\let\c@table\c@figure
+\let\ftype@table\ftype@figure
+\makeatother
+
+% Rotate multicolumn table header
+\newcommand{\mcrot}[4]{\multicolumn{#1}{#2}{\rlap{\rotatebox{#3}{#4}~}}}
+\newcommand{\crot}[2]{\rlap{\rotatebox{#1}{#2}~}}
+
+% Single-cell alignment
+\newcommand{\aligncell}[2]{\multicolumn{1}{#1}{#2}}
+\newcommand{\centercell}[1]{\aligncell{c}{#1}}
+
+% Chapter title pages
+\addtokomafont{chapter}{\Huge}
+\addtokomafont{chapterprefix}{\LARGE\raggedleft}
+\renewcommand*{\chapterformat}{%
+    \mbox{\chapappifchapterprefix{\nobreakspace}%
+    \scalebox{3}{\color{supporta}\thechapter}\enskip}}
+
+% Hack to make KOMA compatible with float-packages
+\usepackage{scrhack}
+
+% BibLaTeX for citations
+\usepackage[backend=biber,style=numeric-comp,giveninits=true,doi=false,sorting=none,sortcites=true,backref=true,hyperref=true]{biblatex}
+
+% Add support for collaborations
+\DeclareSourcemap{
+  \maps[datatype=bibtex,overwrite=true]{
+    \map{
+      \step[fieldsource=Collaboration, final=true]
+      \step[fieldset=usera, origfieldval, final=true]
+    }
+  }
+}
+\renewbibmacro*{author}{%
+  \iffieldundef{usera}{%
+    \printnames{author}%
+  }{%
+    \printfield{usera}, \printnames{author}%
+  }%
+}%
+
+\addbibresource{LHCb-CONF.bib}
+\addbibresource{LHCb-DP.bib}
+\addbibresource{LHCb-PAPER.bib}
+\addbibresource{LHCb-TDR.bib}
+\addbibresource{ourbib.bib}
+
+% Get hyperlinks to captions and in references.
+\usepackage{hyperref}    % Hyperlinks in references
+\usepackage[all]{hypcap} % Internal hyperlinks to floats.
+\usepackage[capitalise]{cleveref}
+
+% File with analysis definitions
+\input{ourdefs}

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+ARGS=$@
+if [[ -z $ARGS ]]; then
+    ARGS="title.tex theory.tex detector.tex methods.tex DsK_BF.tex BsDsK_TD.tex Vub.tex appendix.tex summary.tex samenvatting.tex acknowledgements.tex"
+fi
+
+for ARG in $ARGS; do
+    if [[ "$ARG" = "samenvatting.tex" ]]; then
+        L="nl"
+    else
+        L="en_GB"
+    fi
+    aspell -d "$L" --add-filter=tex -p ./.aspell."$L".pws -c "$ARG"
+done
+
